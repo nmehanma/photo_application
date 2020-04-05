@@ -1,6 +1,7 @@
 $(document).ready(function() {
+
   var show_error, stripeResponseHandler, submitHandler;
-  
+
   submitHandler = function (event) {
     var $form = $(event.target);
     $form.find("input[type=submit]").prop("disabled", true);
@@ -12,9 +13,7 @@ $(document).ready(function() {
     }
     return false;
   };
-  
-  $(".cc_form").on('submit', submitHandler);
-  
+
   stripeResponseHandler = function (status, response) {
     var token, $form;
     
@@ -36,7 +35,7 @@ $(document).ready(function() {
     }
     return false;
   };
-  
+
   show_error = function (message) {
     if($("#flash-messages").size() < 1) {
       $('div.container.main div:first').prepend("<div id='flash-messages'></div>")
@@ -45,4 +44,6 @@ $(document).ready(function() {
     $('.alert').delay(5000).fadeOut(3000);
     return false;
   };
+
+  $(".cc_form").on('submit', submitHandler);
 });
